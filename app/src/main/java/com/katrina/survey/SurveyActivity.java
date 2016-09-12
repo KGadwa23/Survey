@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 public class SurveyActivity extends AppCompatActivity {
 
+    private static final String CHRISTMAS_INDEX = "Christmas index";        //for keeping track of votes when rotating
+    private static final String THANKSGIVING_INDEX = "Thanksgiving index";
+
     Button mChristmas;              //List of all buttons and textview boxes
     Button mThanksgiving;
     Button mResults;
@@ -61,5 +64,17 @@ public class SurveyActivity extends AppCompatActivity {
                 mThanksgivingOutcome.setText("Thanksgiving: " + String.valueOf(mThanksgivingStartOutcome));
             }
         });
+
+        if (savedInstanceState != null) {       //for keeping track of votes when rotating
+            mChristmasStartOutcome = savedInstanceState.getInt(CHRISTMAS_INDEX, 0);
+            mThanksgivingStartOutcome = savedInstanceState.getInt(THANKSGIVING_INDEX, 0);
+        }
+    }
+
+    @Override       //for keeping track of votes when rotating
+    public void onSaveInstanceState (Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(CHRISTMAS_INDEX, mChristmasStartOutcome);
+        savedInstanceState.putInt(THANKSGIVING_INDEX, mThanksgivingStartOutcome);
     }
 }
