@@ -46,22 +46,40 @@
             android:id="@+id/christmasOutcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/christmasButton"
             />
 
         <TextView
             android:id="@+id/thanksgivingOutcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/christmasOutcome"/>
+            android:layout_toRightOf="@id/christmasOutcome"
+            android:layout_below="@id/thanksgivingButton"
+            />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/resultResetlinearlayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/reset_button"
-        android:layout_below="@id/linearlayout"/>
+        android:layout_below="@id/linearlayoutoutcomes">
+
+        <Button
+            android:id="@+id/resultsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/results_button"/>
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_button"
+            android:layout_toRightOf="@id/resultsButton"/>
+
+    </LinearLayout>
+
 
 
 </RelativeLayout>
