@@ -2,6 +2,7 @@
 
 package com.katrina.survey;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,8 +51,13 @@ public class SurveyActivity extends AppCompatActivity {
         mResults.setOnClickListener(new View.OnClickListener() {    //when Results button is clicked, the accumulated Christmas and Thanksgiving outcomes are shown on the screen
             @Override
             public void onClick (View v) {
-                mChristmasOutcome.setText("Christmas: " + String.valueOf(mChristmasStartOutcome) + "        ");
-                mThanksgivingOutcome.setText("Thanksgiving: " + String.valueOf(mThanksgivingStartOutcome));
+                //mChristmasOutcome.setText("Christmas: " + String.valueOf(mChristmasStartOutcome) + "        ");
+                //mThanksgivingOutcome.setText("Thanksgiving: " + String.valueOf(mThanksgivingStartOutcome));
+                //Start Results Activity
+                int christmasResults = mChristmasStartOutcome;
+                int thanksgivingResults = mThanksgivingStartOutcome;
+                Intent i = ResultsActivity.newIntent(SurveyActivity.this, christmasResults, thanksgivingResults);
+                startActivity(i);
             }
         });
 
