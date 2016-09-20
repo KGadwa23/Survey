@@ -2,6 +2,7 @@
 
 package com.katrina.survey;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,16 +14,20 @@ public class SurveyActivity extends AppCompatActivity {
 
     private static final String CHRISTMAS_INDEX = "Christmas index";        //for keeping track of votes when rotating
     private static final String THANKSGIVING_INDEX = "Thanksgiving index";
+    private static final int RESET_CODE = 0;    //request to reset results from child activity
 
     Button mChristmas;              //List of all buttons and textview boxes
     Button mThanksgiving;
     Button mResults;
+
     Button mReset;
     TextView mChristmasOutcome;
     TextView mThanksgivingOutcome;
 
     private int mChristmasStartOutcome = 0;     //starting value of zero for total counts
     private int mThanksgivingStartOutcome = 0;
+
+    private boolean mResetRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,7 @@ public class SurveyActivity extends AppCompatActivity {
                 int christmasResults = mChristmasStartOutcome;
                 int thanksgivingResults = mThanksgivingStartOutcome;
                 Intent i = ResultsActivity.newIntent(SurveyActivity.this, christmasResults, thanksgivingResults);
-                startActivity(i);
+                startActivityForResult(i, RESET_CODE);
             }
         });
 
@@ -76,6 +81,21 @@ public class SurveyActivity extends AppCompatActivity {
             mThanksgivingStartOutcome = savedInstanceState.getInt(THANKSGIVING_INDEX, 0);
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode != Activity.RESULT_OK) {
+            return;
+        }
+        if (requestCode == RESET_CODE) {
+            if (data == null) {
+                return;
+            }
+            mResetRequest = ResultsActivity.wasResetRequested(data);
+        }
+    }
+
+
 
     @Override       //for keeping track of votes when rotating
     public void onSaveInstanceState (Bundle savedInstanceState) {

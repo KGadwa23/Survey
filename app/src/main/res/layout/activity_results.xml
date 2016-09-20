@@ -7,17 +7,25 @@
     android:orientation="vertical"
     tools:context="com.katrina.survey.ResultsActivity">
 
+
+    <Button
+        android:id="@+id/resultsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/results_button"/>
+
     <LinearLayout
         android:id="@+id/linearlayoutoutcomes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resultsButton">
 
 
         <TextView
             android:id="@+id/christmasOutcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/christmasButton"
+            android:text="Christmas#"
             />
 
         <TextView
@@ -25,22 +33,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/christmasOutcome"
-            android:layout_below="@id/thanksgivingButton"
+            android:text="Thanksgiving#"
             />
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/resultDirections"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Reset or Continue before clicking back."
+        />
+
     <LinearLayout
         android:id="@+id/resultResetlinearlayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearlayoutoutcomes">
 
-        <Button
-            android:id="@+id/resultsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/results_button"/>
+
 
         <Button
             android:id="@+id/resetButton"
