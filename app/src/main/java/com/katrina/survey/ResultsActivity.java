@@ -43,10 +43,10 @@ public class ResultsActivity extends AppCompatActivity {
         mChristmasResult = getIntent().getIntExtra(CHRISTMAS_RESULT, 0);
         mThanksgivingResult = getIntent().getIntExtra(THANKSGIVING_RESULT, 0);
 
-        mChristmasOutcome = (TextView) findViewById(R.id.christmasOutcome);
-        mThanksgivingOutcome = (TextView) findViewById(R.id.thanksgivingOutcome);
+        mChristmasOutcome = (TextView) findViewById(R.id.christmasOutcome2);
+        mThanksgivingOutcome = (TextView) findViewById(R.id.thanksgivingOutcome2);
 
-        mResults = (Button) findViewById(R.id.resultsButton);
+        mResults = (Button) findViewById(R.id.resultsButton);       //TODO - why does it crap out right here?
         mResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

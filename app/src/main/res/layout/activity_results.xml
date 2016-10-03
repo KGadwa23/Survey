@@ -22,17 +22,17 @@
 
 
         <TextView
-            android:id="@+id/christmasOutcome"
+            android:id="@+id/christmasOutcome2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Christmas#"
             />
 
         <TextView
-            android:id="@+id/thanksgivingOutcome"
+            android:id="@+id/thanksgivingOutcome2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/christmasOutcome"
+            android:layout_toRightOf="@id/christmasOutcome2"
             android:text="Thanksgiving#"
             />
 
