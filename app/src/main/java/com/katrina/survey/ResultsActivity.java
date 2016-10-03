@@ -50,8 +50,8 @@ public class ResultsActivity extends AppCompatActivity {
         mResults.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mChristmasOutcome.setText("Christmas: " + String.valueOf(mChristmasOutcome) + "        ");
-                mThanksgivingOutcome.setText("Thanksgiving: " + String.valueOf(mThanksgivingOutcome));
+                mChristmasOutcome.setText("Christmas: " + mChristmasResult);
+                mThanksgivingOutcome.setText("Thanksgiving: " + mThanksgivingResult);
             }
         });
 
